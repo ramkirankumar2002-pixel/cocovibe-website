@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #2E7D32;
+  --color-primary-light: #4CAF50;
+  --color-accent: #A5D6A7;
+  --color-accent-light: #C8E6C9;
+  --color-beige: #F5F5F0;
+  --color-beige-dark: #E8E8E0;
+  --color-charcoal: #222222;
+
+  --animate-shine: shine 1.5s ease-out infinite;
+
+  @keyframes shine {
+    100% {
+      left: 125%;
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: linear-gradient(135deg, var(--color-beige), white);
+    color: var(--color-charcoal);
+    font-family: 'Inter', system-ui, sans-serif;
+    overflow-x: hidden;
+    cursor: default;
+  }
+
+  button,
+  a,
+  .clickable {
+    cursor: pointer;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-beige);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-accent);
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-primary);
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/30 backdrop-blur-lg border border-white/40 shadow-xl;
+  }
+
+  .glass-dark {
+    @apply bg-black/20 backdrop-blur-md border border-white/10 shadow-2xl;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+}
